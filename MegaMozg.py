@@ -122,5 +122,5 @@ class MegaMozgMod(loader.Module):
             if x and x.reply_to and x.reply_to.reply_to_msg_id == sid
         ]
         msg = random.choice(msgs)
-        await m.reply(f"[Бот] {msg}")
+        await m.reply("[Бот] " + msg)
 
