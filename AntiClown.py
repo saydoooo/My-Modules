@@ -1,12 +1,13 @@
 # ---------------------------------------------------------------------------------
 #  /\_/\
-# ( -_- )  🌐 Этот модуль был загружен с GitHub: github.com
-#  > 💀 <   🔐 Автор модуля: D4n13l3k00
+# ( o.o )  AntiClown модуль
+#  > ^ <   Отправляет стикер в ответ на сообщение, если в сообщении найден смайл клоуна
 # ---------------------------------------------------------------------------------
-# Имя                                             : AntiClown
-# Описание                                        : Модуль отправляет текст "те кто ставит реакцию клоуна тот террорист и фашист" при установке реакции "клоун" на сообщение
-# Автор                                           : D4n13l3k00
-# Команды                                         : .anticlown
+# Название: AntiClown
+# Описание: Модуль для отправки стикера в ответ на сообщение, если в сообщении найден смайл клоуна
+# Автор: your_username
+# Команды: .anticlown
+# Источник: https://github.com/your_username/AntiClown
 # ---------------------------------------------------------------------------------
 
 import random
@@ -24,30 +25,18 @@ class AntiClownMod(loader.Module):
 
     def __init__(self):
         self.client = None
-        self.channel_id = None
-        self.favorite_chat_id = None
 
     async def client_ready(self, client, db):
         self.client = client
 
     async def on_message(self, event):
-        if self.favorite_chat_id is not None:
-            if event.is_channel and event.message.to_id.channel_id == self.channel_id:
-                if "🤡" in event.message.reactions:
-                    # Отправляем сообщение при установке реакции "клоун"
-                    await self.client.send_message(self.favorite_chat_id, "Те, кто ставит реакцию 'клоун', тот террорист и фашист!")
+        if event.sender_id != self.client.get_me().id:
+            message = event.message.message
+            if '🤡' in message:
+                # Отправляем стикер в ответ на сообщение
+                sticker_id = random.choice(['CAACAgIAAxkBAAEIoIpkPpsBZ9jI5hwTKEt-pHWZIEztawACxCYAArRQ2Ul0YT-Kj48EJC8E'])
+                await self.client.send_file(event.chat_id, file=sticker_id, reply_to=event.id)
 
     async def anticlowncmd(self, m):
-        """.anticlown - установить канал, для отслеживания установки реакции 'клоун' на сообщение"""
-        args = utils.get_args_raw(m)
-        if not args:
-            await m.edit("<b>Укажите айди канала!</b>")
-            return
-
-        try:
-            self.channel_id = int(args)
-        except ValueError:
-            await m.edit("<b>Неверный формат айди канала!</b>")
-            return
-
-        await m.edit(f"<b>Канал успешно установлен:</b> {args}")
+        """.anticlown - Включить/выключить AntiClown модуль"""
+        await self.client.send_message(m.chat_id, "AntiClown модуль активен!")
