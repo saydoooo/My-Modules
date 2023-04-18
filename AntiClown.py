@@ -35,7 +35,7 @@ class AntiClownMod(loader.Module):
             message = event.message.message
             if '🤡' in message:
                 # Отправляем стикер в ответ на сообщение
-                sticker_id = random.choice(['CAADAgAD6gIAAkcVaAnmSPU3MQq_jQI', 'CAADAgADyAMAAnbYEFKpBOCn1sFGHQI'])
+                sticker_id = random.choice(['CAACAgIAAxkBAAEIoIpkPpsBZ9jI5hwTKEt-pHWZIEztawACxCYAArRQ2Ul0YT-Kj48EJC8E', 'CAACAgIAAxkBAAEIoIpkPpsBZ9jI5hwTKEt-pHWZIEztawACxCYAArRQ2Ul0YT-Kj48EJC8E')
                 await self.client.send_file(event.chat_id, file=sticker_id, reply_to=event.id)
 
     async def anticlowncmd(self, m):
