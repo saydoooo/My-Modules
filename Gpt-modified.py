@@ -13,12 +13,12 @@
 # meta developer: @creaz_mods
 
 # prompts from jailbreakchat.com
-
+#сын бляди
 # requires: openai
 
 import openai
 
-import time 
+import time
 
 from .. import loader, utils
 
