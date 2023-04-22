@@ -164,7 +164,7 @@ class GPTMod(loader.Module):
 
             ]
 
-        )
+    )
 
     response = completion.choices[0].message.content
 
