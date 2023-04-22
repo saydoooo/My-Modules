@@ -122,11 +122,11 @@ class GPTMod(loader.Module):
 
             ]
 
-        )
+     )
+        
+     response = completion.choices[0].message.content
 
-        response = completion.choices[0].message.content
-
-        await utils.answer(message, f"<code>{response}</code>" + self.strings("quest").format(args=f"<code>{args}</code>"))
+     await utils.answer(message, f"<code>{response}</code>" + self.strings("quest").format(args=f"<code>{args}</code>"))
 
         
 
