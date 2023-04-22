@@ -149,7 +149,7 @@ class GPTMod(loader.Module):
     
                                         
 
-         if self.config["api_key"] is None:
+        if self.config["api_key"] is None:
 
 
              await utils.answer(message, self.strings("conf_err"))
