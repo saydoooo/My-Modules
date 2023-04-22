@@ -132,7 +132,7 @@ class GPTMod(loader.Module):
 
     @loader.command(ru_doc="<вопрос> - ваш вопрос к KelvinGPT")
     async def kgpt(self, message: Message):
-    """<question> - question for Kelvin"""
+        """<question> - question for Kelvin"""
     args = utils.get_args_raw(message)
     if not args:
         await utils.answer(message, self.strings("args_err"))
