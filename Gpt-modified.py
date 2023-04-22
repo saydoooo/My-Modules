@@ -178,7 +178,7 @@ async def kgpt(self, message: Message):
 
     response = completion.choices[0].message.content
 
-    await utils.answer(message, f"<code>{response}</code>" + self.strings("quest_k").format(args=f"<code>{args}</code>"))
+    await utils.answer(message, f"<code>{response}</code>" + self.strings("quest").format(args=f"<code>{args}</code>"))
         
 
     @loader.command(ru_doc="<вопрос> - ваш вопрос к FuckGPT")
