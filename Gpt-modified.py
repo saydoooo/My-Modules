@@ -132,7 +132,7 @@ class GPTMod(loader.Module):
 
     @loader.command(ru_doc="<вопрос> - ваш вопрос к KelvinGPT")
 
-async def kgpt(self, message: Message):
+    async def kgpt(self, message: Message):
 
     """<question> - question for KelvinGPT"""
 
